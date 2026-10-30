@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-green-primary: #154D3F;
+  --color-green-hover: #0F382E;
+  --color-green-light: #E8F5EE;
+  --color-bg-light: #F4F6F8;
+  --color-card-light: #FFFFFF;
+  --color-border-light: #E5E9EB;
+  --color-bg-dark: #0A0E12;
+  --color-card-dark: #12181E;
+  --color-border-dark: #1E262E;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #F4F6F8;
+  color: #0A0E12;
+  color-scheme: light;
+}
+
+html.dark,
+html[data-theme='dark'] {
+  scroll-behavior: smooth;
+  background-color: #0A0E12;
+  color: #F4F6F8;
+  color-scheme: dark;
+}
+
+/* High-polish smooth page transition */
+@keyframes pageFadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition-enter {
+  animation: pageFadeSlideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+
+/* Offset in-page anchors for fixed navigation header */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .page-transition-enter {
+    animation: none;
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F4F6F8;
+  color: #0A0E12;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark body,
+body.dark,
+html[data-theme='dark'] body {
+  background-color: #0A0E12;
+  color: #F4F6F8;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Donezo selection highlight */
+::selection {
+  background-color: #154D3F;
+  color: #FFFFFF;
+}
+
+/* Card Glows */
+.card-subtle-glow {
+  box-shadow: 0 4px 20px -2px rgba(21, 77, 63, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+}
