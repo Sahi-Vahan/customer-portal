@@ -3,6 +3,19 @@
 > **"Sahi Gaadi. Sahi Faisla."**  
 > India's premier digital marketplace for booking certified, unbiased pre-purchase inspections for used cars and motorcycles.
 
+### 🌐 Live Production URL
+👉 **[https://sahivahan.netlify.app/](https://sahivahan.netlify.app/)**
+
+---
+
+## 🌐 Live Deployments & Ecosystem Links
+
+| Application | Live Deployed URL | Target Users |
+| :--- | :--- | :--- |
+| **Customer Portal** (Current) | **[sahivahan.netlify.app](https://sahivahan.netlify.app/)** | Used Car & Bike Buyers across India |
+| **Specialist Field App** | **[sahivahan-spl.netlify.app/specialist/dashboard](https://sahivahan-spl.netlify.app/specialist/dashboard)** | Certified Automotive Mechanics & Field Technicians |
+| **Admin Command Center** | **[sahivahan-adminportal.netlify.app/admin/dashboard](https://sahivahan-adminportal.netlify.app/admin/dashboard)** | Dispatchers, QA Auditors, Fleet Managers, Finance Controllers |
+
 ---
 
 ## 📌 Overview
@@ -14,13 +27,13 @@ The **Customer Portal** is the consumer-facing web application of the SahiVahan 
 ## 🚀 Key Features
 
 ### 1. High-Converting Discovery & Public Pages
-- **Vehicle-Specific Landing Pages**: Dedicated hubs for [Used Car Pre-Purchase Inspection](file:///Users/avinashgunturu/Desktop/sahivahan/apps/customer-portal/src/pages/public/CarInspectionPage.tsx) and [Used Bike Pre-Purchase Inspection](file:///Users/avinashgunturu/Desktop/sahivahan/apps/customer-portal/src/pages/public/BikeInspectionPage.tsx).
+- **Vehicle-Specific Landing Pages**: Dedicated hubs for Used Car Pre-Purchase Inspection (`/car-inspection`) and Used Bike Pre-Purchase Inspection (`/bike-inspection`).
 - **Interactive Sample Report**: Public interactive showcase (`/sample-report`) previewing a comprehensive inspection report with 200+ checkpoints, defect photographs, and health score calculations.
 - **Transparent Pricing Calculator**: Real-time pricing calculator (`/pricing`) detailing base fees, complexity tiers, travel distance allowances, and GST.
 - **City Hubs**: SEO-optimized landing pages (`/cities/:city`) for major metropolitan areas including Delhi NCR, Mumbai, Bengaluru, Hyderabad, Pune, and Chennai.
 - **Automotive Advisory Blog**: Rich articles and used-vehicle buying guides (`/blog` and `/blog/:slug`).
 - **Specialist Onboarding Hub**: Informational portal for technicians interested in joining the SahiVahan fleet (`/become-specialist`).
-- **Comprehensive Legal Disclaimers**: Transparent [Terms of Service](file:///Users/avinashgunturu/Desktop/sahivahan/apps/customer-portal/src/pages/legal/TermsPage.tsx), [Privacy Policy](file:///Users/avinashgunturu/Desktop/sahivahan/apps/customer-portal/src/pages/legal/PrivacyPage.tsx), [5-Stage Cancellation Policy](file:///Users/avinashgunturu/Desktop/sahivahan/apps/customer-portal/src/pages/legal/CancellationPolicyPage.tsx), and [Inspection Limitations & Non-Invasive Scope](file:///Users/avinashgunturu/Desktop/sahivahan/apps/customer-portal/src/pages/legal/InspectionLimitationsPage.tsx).
+- **Comprehensive Legal Disclaimers**: Transparent Terms of Service (`/terms`), Privacy Policy (`/privacy`), 5-Stage Cancellation Policy (`/cancellation-policy`), and Inspection Limitations & Non-Invasive Scope (`/inspection-limitations`).
 
 ---
 
@@ -212,6 +225,11 @@ Generates an optimized, tree-shaken static production bundle in `dist/`.
 npm run preview
 ```
 
+### Netlify Deployment Configuration (SPA Reload Fix)
+This Single Page Application uses client-side routing via React Router v6. To prevent `404 Not Found` errors when users refresh or reload nested routes like `/blog`, `/pricing`, or `/book/vehicle`, the project includes:
+1. `public/_redirects`: Contains `/*  /index.html  200` which Vite copies into `dist/_redirects` during build.
+2. `netlify.toml`: Contains the Netlify build settings and catch-all redirect rule to `/index.html`.
+
 ### Run Automated Pricing & Cancellation Policy Test Suite
 ```bash
 node src/api/pricing_rules.test.js
@@ -230,5 +248,5 @@ Executes 17 comprehensive unit tests verifying:
 ---
 
 ## 🔗 Related Applications in SahiVahan
-- [Specialist App (`apps/specialist-app`)](../specialist-app/README.md) — Technician mobile-first web app for field check-in and 200+ point checklist execution.
-- [Admin Command Center (`apps/admin-portal`)](../admin-portal/README.md) — Operations dispatch, QA audits, specialist KYC vetting, and escrow finance deck.
+- [Specialist Field App](https://sahivahan-spl.netlify.app/specialist/dashboard) — Technician mobile-first web app for field check-in and 200+ point checklist execution.
+- [Admin Command Center](https://sahivahan-adminportal.netlify.app/admin/dashboard) — Operations dispatch, QA audits, specialist KYC vetting, and escrow finance deck.
